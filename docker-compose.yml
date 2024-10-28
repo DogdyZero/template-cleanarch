@@ -1,0 +1,59 @@
+services:
+    app:
+        container_name: restaurante_app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+        env_file:
+            - .dev.env
+        depends_on:
+            - db
+    sonarqube:
+        image: sonarqube:latest
+        environment:
+            SONAR_JDBC_URL: jdbc:postgresql://db2:5432/sonar
+            SONAR_JDBC_USERNAME: sonar
+            SONAR_JDBC_PASSWORD: sonar
+        ports:
+            - "9000:9000"
+        depends_on:
+            - db2
+        volumes:
+            - sonarqube_data:/opt/sonarqube/data
+            - sonarqube_extensions:/opt/sonarqube/extensions
+            - sonarqube_logs:/opt/sonarqube/logs
+            - sonarqube_temp:/opt/sonarqube/temp
+
+    db:
+        container_name: restaurante_postgres
+        image: postgres:latest
+        ports:
+            - "5433:5432"
+        env_file:
+            - .dev.env
+        volumes:
+            - restaurante_postgres:/var/lib/postgresql/data
+    db2:
+        container_name: sonar_postgres
+        image: postgres:latest
+        ports:
+            - "5430:5432"
+        environment:
+            POSTGRES_USER: sonar
+            POSTGRES_PASSWORD: sonar
+            POSTGRES_DB: sonar
+        volumes:
+            - postgresql:/var/lib/postgresql
+            - postgresql_data:/var/lib/postgresql/data
+
+volumes:
+    restaurante_postgres:
+    postgres_data:
+    sonarqube_data:
+    sonarqube_extensions:
+    sonarqube_logs:
+    sonarqube_temp:
+    postgresql:
+    postgresql_data:

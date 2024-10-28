@@ -178,4 +178,4 @@ http://192.168.49.2:31098/swagger-ui/index.html
 
 [Douglas Gomes](https://github.com/dogdyzero)        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RM354960    
 [Robson Costa](https://github.com/robsonx4)          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RM354332   
-[Rodrigo Santiago](https://github.com/rodrigo-sntg)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RM354960  
+[Rodrigo Santiago](https://github.com/rodrigo-sntg)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RM354960  # template-cleanarch
